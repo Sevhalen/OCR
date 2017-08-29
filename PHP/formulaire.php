@@ -17,19 +17,22 @@
         </form>
         
         <?php
-        if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "kangourou")
+        if(isset($_POST['mot_de_passe'])) // Bloque l'affichage d'infos au premier lancement de la page
         {
-            ?>
+            if($_POST['mot_de_passe'] == "kangourou")
+            {
+                ?>
         
-            <h1>Voici les codes d'acces :</h1>
-            <p><strong>CRD5-CHTD6-CHDJ8-HDNKQ-CNKI9</strong></p>
-            <p>La NASA vous remercie de votre visite.</p>
+                <h1>Voici les codes d'acces :</h1>
+                <p><strong>CRD5-CHTD6-CHDJ8-HDNKQ-CNKI9</strong></p>
+                <p>La NASA vous remercie de votre visite.</p>
             
-            <?php
-        }
-        else
-        {
-            echo '<p>Mot de passe errone.</p>';
+                <?php
+            }
+            else
+            {
+                echo '<p>Mot de passe errone.</p>';
+            }
         }
         ?>
         
