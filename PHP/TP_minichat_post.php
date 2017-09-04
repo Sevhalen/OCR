@@ -5,9 +5,6 @@ $db_pw    = 'root';
 $new_m_pseudo = htmlspecialchars($_POST['pseudo']);
 $new_message = htmlspecialchars($_POST['message']);
 
-var_dump($_POST['pseudo']);
-var_dump($_POST['message']);
-    
 try
 {
     // Connexion a la bdd
@@ -25,5 +22,6 @@ if(isset($_POST['pseudo']) && isset($_POST['message']))
     $req->execute(array($new_m_pseudo, $new_message));
 }
 
+// Retour automatique a la page principale du minichat
 header('location: TP_minichat.php');
 ?>

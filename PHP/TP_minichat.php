@@ -14,6 +14,8 @@
     </style>
     
     <body>
+        <!-- Appel a une page annexe pour le traitement des messages
+                a envoyer a la BdD pour smplifier la gestion du code -->
         <form action="TP_minichat_post.php" method="post">
             <p>                
                 <label for="pseudo">Pseudo : </label><input type='text' name="pseudo" id="pseudo">
@@ -37,8 +39,12 @@
                 die('Erreur : ' . $ex->getMessage());
             }
             
+            // Recuperation des 10 derniers messages, dans l'ordre ID decroissant
             $reponse = $bdd->query('SELECT pseudo, message FROM minichat ORDER BY ID DESC Limit 0, 10');
             
+            // Boucle d'affichage des messages recuperes
+            // fetch : recuperation 1 a 1 a partir du premier message recupere
+            // de la BdD
             if($reponse) {            
             while($donnees = $reponse->fetch())
             {
