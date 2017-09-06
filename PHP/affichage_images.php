@@ -7,7 +7,7 @@
     </head>
     
     <body>
-        <img src="creation_images.php">
+        <img src="fusion_images.php">
     </body>
     
 </html>
