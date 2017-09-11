@@ -1,3 +1,13 @@
+// Recuperation des attributs d'une selection
+console.log(document.querySelector("a").getAttribute("href"));
+console.log(document.querySelector("a").href);
+
+// Recuperation du contenu textuel sans les balises HTML
+console.log(document.getElementById("contenu").textContent);
+
+// Recuperation de l'ensemble du contenu HTML d'une selection
+console.log(document.getElementById("contenu").innerHTML);
+
 
 // Selection des éléments selon leur balise
 var titreElts = document.getElementsByTagName("h2"); // Recupere tous les titres h2
