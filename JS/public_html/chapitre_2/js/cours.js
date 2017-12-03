@@ -43,3 +43,8 @@ console.log(document.querySelectorAll("#antiques > .existe").length);
 
 // Renvoie uniquement du premier paragraphe
 console.log(document.querySelector("p"));
+
+// Liste des classes de l'élément avec ID "antiques"
+var classes = document.getElementById("antiques").classList
+console.log(classes.length) // Affiche 1 : l'elément ne possède qu'une seule classe
+console.log(classes[0]) // Affiche la classe en question "merveilles"
