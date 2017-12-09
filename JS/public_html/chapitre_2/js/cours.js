@@ -1,3 +1,5 @@
+// Fichier JS du cours 2
+
 // Recuperation des attributs d'une selection
 console.log(document.querySelector("a").getAttribute("href"));
 console.log(document.querySelector("a").href);
