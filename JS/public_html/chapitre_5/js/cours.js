@@ -40,3 +40,63 @@ function infosClavier(e) {
 
 document.addEventListener("keydown", infosClavier);
 document.addEventListener("keyup", infosClavier);
+
+// Affichage d'informations sur un click effectué dans la page du navigateur
+//  En particulier : affichage des coordonnées du click et du bouton clické
+
+// Renvoie le nom du bouton souris à partir de son code
+function getBoutonSouris(codeClick) {
+    var bouton = "inconnu";
+    switch (codeClick) {
+        case 0: // 0 est le code du click gauche
+            bouton = "gauche";
+            break;
+        case 1: // 1 est le code du click milieu
+            bouton = "milieu";
+            break;
+        case 2: // 2 est le code du click droit
+            bouton = "droit";
+            break
+    }
+    return bouton;
+}
+
+// Affiche des informations sur un événement souris
+function infosSouris(e) {
+    console.log("Evènement souris : " + e.type + ", bouton " +
+            getBoutonSouris(e.button) + ", X : " + e.clientX + ", Y : " + e.clientY);
+}
+//Ligne ci-dessous mise en commentaire pour éviter les interférences avec
+//l'exemple sur la propagation des événements
+//document.addEventListener("click", infosSouris);
+
+
+
+// Gestion de la fin du chargement de la page web
+window.addEventListener("load", function() {
+    console.log("Page entièrement chargée");
+});
+
+// Demande de confirmation de la fermeture de la page
+//  Requière que l'utilisateur interagisse avec la page pour se déclencher à la fermeture
+//  sur Chrome le 27.12.17 : a priori n'affiche pas le message souhaité ...
+window.addEventListener("beforeunload", function(e) {
+    var message = "on est bien ici !";
+    e.returnValue = message;
+    return message;
+});
+
+// Exemple de propagation des événements (ascendant dans le DOM)
+//  Gestion du click dans le document
+document.addEventListener("click", function () {
+    console.log("Gestionnaire document");
+});
+//  Gestion du click sur le paragraphe
+document.getElementById("para").addEventListener("click", function () {
+    console.log("Gestionnaire paragraphe");
+});
+//  Gestion du click sur le bouton
+document.getElementById("propa").addEventListener("click", function (e) {
+    console.log("Gestionnaire bouton");
+    e.stopPropagation(); // Arrêt de la propagation - A priori ne marche pas non plus sur Chrome
+});
